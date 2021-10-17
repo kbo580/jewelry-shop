@@ -13,7 +13,7 @@ body, h1, h2, h3, h4, h5, p, ul, li, ol, dl, dt, figure, input, textarea {
 }
 
 body {
-  font-family: "游明朝体", sans-serif;
+  font-family: "游明朝体", 'Noto Serif JP', serif;
   font-size: calc(0.875rem + ((1vw - 3.75px) * 0.2424));
   line-height: 1.7;
   letter-spacing: 0.1em;
