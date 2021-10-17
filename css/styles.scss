@@ -1,0 +1,873 @@
+@charset "UTF-8";
+*{
+  box-sizing: border-box;
+}
+
+@function rem($px){
+  @return ($px/16) *1rem;
+}
+
+$bgcB: #f7f7f7;
+$txt: #333;
+
+
+body,h1,h2,h3,h4,h5,p,ul,li,ol,dl,dt,figure,input,textarea {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  list-style: none;
+  outline:0;
+}
+
+body {
+  font-family: "游明朝体", sans-serif;
+  font-size: calc(0.875rem + ((1vw - 3.75px) * 0.2424));
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+}
+
+a { 
+  color: inherit;
+  text-decoration: none;
+}
+
+img{
+  max-width:100%;
+  vertical-align: bottom;
+}
+
+
+header,main,section,footer, div, ul, li, h1,h2,h3{
+  // background-color: rgba(0,200,100,0.1);
+  // border: 1px solid rgba(0,0,0,0.4);
+}
+
+.inner{
+  margin: 0 auto;
+  max-width: 1100px;
+  // background-color: rgba(241,92,168,0.2);
+  // padding: 0 4%;
+  padding: 0 15px;
+}
+
+
+
+h2{
+  color: #cfa957;
+  font-size: calc(1.75rem + ((1vw - 3.75px) * 1.326));
+  text-align: center;
+  font-family: "Academy Engraved LET";
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+section{
+  border: 1px solid #000;
+  padding: 40px 0;
+}
+
+
+@media (min-width: 600px) {
+  section{
+    padding: 60px 0;
+  }
+
+  h2{
+    margin-bottom: 40px;
+  }
+
+}
+@media (min-width: 1025px) {
+  body{
+    font-size: 16px;
+  }
+
+  section{
+    padding: 100px 0;
+  }
+
+  h2{
+    font-size: rem(40);
+    margin-bottom: 60px;
+  }
+}
+
+
+/* ------------------------------------ */
+/* ヘッダー */
+/* ------------------------------------ */
+header{
+  width: 100%;
+
+  h1{
+    width: 200px;
+    margin: 0 auto;
+    padding: 16px 0 30px;
+  }
+
+  /*ハンバーガーメニュー*/
+  .humberger{
+    position: fixed;
+    top: 0;
+    right: 4%;
+    cursor: pointer;
+    width: 50px;
+    height:50px;
+    z-index: 9999;
+  }
+
+  /*ボタン内側*/
+  .humberger span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background: #cfa957;
+    width: 45%;
+  }
+
+  .humberger span:nth-of-type(1) {
+    top:15px;	
+  }
+
+  .humberger span:nth-of-type(2) {
+    top:23px;
+  }
+
+  .humberger span:nth-of-type(3) {
+    top:31px;
+  }
+
+  /*activeクラスがついた時*/
+  .humberger.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 45%;
+  }
+
+  .humberger.active span:nth-of-type(2) {
+    opacity: 0;/*真ん中の線は透過*/
+  }
+
+  .humberger.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 45%;
+  }
+
+  .sp-header-nav{
+    position:fixed;
+    z-index: 999;
+    top:0;
+    right: -120%;
+    width:100%;
+    height: 100vh;
+    background:#999;
+    background:$bgcB;
+    transition: all 0.6s;
+
+    /*ナビゲーション*/
+    ul{
+      position: absolute;
+      z-index: 999;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+
+      /*リストのレイアウト設定*/
+      li{
+        text-align: center;
+
+        a{
+          color: $txt;
+          padding:10px;
+          display: block;
+          letter-spacing: 0.1em;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  /*アクティブクラスがついたら位置を0に*/
+  .sp-header-nav.panelactive{
+    right: 0;
+  }
+
+  .header-nav{
+    display: none;
+  }
+
+}
+
+@media (min-width: 600px) {
+  header{
+  
+    h1{
+      width: 300px;
+      padding: 30px 0 40px;
+    }
+  
+  }
+
+}
+@media (min-width: 1025px) {
+  header{
+    width: 100%;
+
+    h1{
+      width: 360px;
+      margin: 0 auto;
+      padding: 60px 0;
+    }
+
+    .header-nav{
+      display: block;
+      margin-bottom: 30px;
+      width: 100%;
+      z-index: 3;
+      background-color: rgba(255, 255, 255, 0.8);
+
+      top: -30px;
+      transition: all 0.3s ease 0s;
+      
+      ul{
+        height: 70px;
+        font-family: "Academy Engraved LET";
+        font-weight: bold;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        li a{
+          transition: all .4s;
+
+          &:hover{
+            color: #cfa957;
+          }
+        }
+      }
+    }
+    
+    .humberger{
+      display: none;
+    }
+  }
+  
+}
+
+/* ヘッダーナビをスクロールした時 */
+.header-nav.nav-wrapper-scroll{
+  left: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  position: fixed;
+  top: 0;
+}
+
+/* -------------------------------------------- */
+/* mv-slider */
+/* -------------------------------------------- */
+.slider {
+  width:100%;
+}
+
+.slider img {
+  width:60vw;
+  height:auto;
+}
+
+.slider .slick-slide {
+  transition: all .5s;
+  opacity: 0.9;
+}
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+  position: absolute;
+  top: 42%;
+  cursor: pointer;
+  outline: none;
+  height: 24px;
+  width: 24px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(1rem + ((1vw - 3.75px) * 0.884));
+}
+
+.slick-prev:before{
+  content: "\f053";
+}
+
+.slick-next:before{
+  content: "\f054";
+}
+
+
+.slick-prev {
+  left: 3%;
+}
+
+.slick-next {
+  right: 3%;
+}
+
+@media (min-width: 600px) {
+
+}
+@media (min-width: 1025px) {
+  /*戻る、次へ矢印の位置*/
+  .slick-prev, 
+  .slick-next {
+    height: 50px;
+    width: 50px;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: rem(24);
+  }
+}
+
+
+
+
+
+/* ------------------------------------ */
+/* about */
+/* ------------------------------------ */
+.about{
+
+   /* aboutのテキストの枠 */
+  .about-text-wrapper{
+    width: 95%;
+    margin: 0 auto; 
+    
+     /* aboutのテキスト */
+    p{
+      font-size: calc(1rem + ((1vw - 3.75px) * 0.442));
+      margin-bottom: 20px;
+    }
+
+    /* aboutの画像の枠 */
+    .about-image-wrapper{
+      text-align: right;
+
+      img{
+        width: 150px;
+      }
+    }
+  }
+}
+@media (min-width: 600px) {
+  .about{
+
+    /* aboutのテキストの枠 */
+    .about-text-wrapper{
+      max-width: 600px;
+  
+      /* aboutのテキスト */
+      p{
+        margin-bottom: 40px;
+      }
+  
+      /* aboutのロゴの枠 */
+      .about-image-wrapper{
+  
+        img{
+          width: 180px;
+        }
+      }
+    }
+  }
+
+}
+@media (min-width: 1025px) {
+  .about{
+
+    /* aboutのテキストの枠 */
+    .about-text-wrapper{
+
+
+      /* aboutのテキスト */
+      p{
+        font-size: rem(20);
+        margin-bottom: 60px;
+      }
+
+      /* aboutのロゴの枠 */
+      .about-image-wrapper{
+
+        img{
+          width: 220px;
+        }
+      }
+    }
+  }
+  
+}
+/* ------------------------------------ */
+/* item */
+/* ------------------------------------ */
+/* 商品 */
+.item{
+
+   /* 商品の枠 */
+  .item-list-wrapper{
+    margin-bottom: 40px;
+
+    /* 個々の商品 */
+    .item-list{
+    
+      /* 商品のタイトル */
+      .list-title{
+        font-weight: bold;
+        line-height: 1.25;
+        text-align: center;
+        font-size: calc(1.25rem + ((1vw - 3.75px) * 0.442));
+        margin-bottom: 16px;
+
+        /* 商品のタイトル(en) */
+        span{
+          font-size: calc(0.75rem + ((1vw - 3.75px) * 0.221));
+          display: block;
+        }
+      }
+
+      /* 商品のテキスト */
+      .list-text{
+        padding: 0 15px;
+        margin-bottom: 16px;
+        color: $txt;
+      }
+
+      /* 商品のイメージ画像 */
+      .item-image{
+        margin-bottom: 16px;
+      }
+      
+      
+      /* あしらい */
+      .border{
+        width: 70%;
+        margin: 0 auto;
+      }
+      
+      &:not(:last-child){
+        margin-bottom: 40px;
+      }
+    }
+  }
+  
+  /* バナーの枠 */
+  .item-banner-wrapper{
+    
+    /* 左のバナー */
+    .left-banner{
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+
+@media (min-width: 600px) {
+  /* 商品 */
+  .item{
+
+    /* 商品の枠 */
+    .item-list-wrapper{
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+
+      /* 個々の商品 */
+      .item-list{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        /* 商品のイメージ画像 */
+        .item-image{
+          margin-top: auto;
+        }
+
+        &:not(:last-child){
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    /* バナーの枠 */
+    .item-banner-wrapper{
+      display: flex;
+
+      /* 左のバナー */
+      .left-banner{
+        margin-bottom: 0;
+      }
+    }
+  }
+
+}
+@media (min-width: 1025px) {
+  /* 商品 */
+  .item{
+
+    /* 商品の枠 */
+    .item-list-wrapper{
+
+      /* 個々の商品 */
+      .item-list{
+
+        /* 商品のタイトル */
+        .list-title{
+          font-size: rem(24);
+
+          /* 商品のタイトル(en) */
+          span{
+            font-size: rem(14);
+          }
+        }
+
+        /* 商品のテキスト */
+        .list-text{
+          padding: 0 48px;
+        }
+      }
+    }
+  }
+  
+}
+/* ------------------------------------ */
+/* maintenance */
+/* ------------------------------------ */
+.maintenance{
+  background-color: $bgcB;
+
+  /* リード文 */
+  p{
+    width: 100%;
+    margin: 0 auto 20px;
+    font-size: calc(1rem + ((1vw - 3.75px) * 0.442));
+  }
+
+   /* 個々のメンテナンス */
+  .maintenance-wrapper{
+    position: relative;
+    margin-bottom: 100px;
+
+    .maintenance-image-wrapper{
+      width: 100%;
+    }
+    
+    .maintenance-text-wrapper{
+      width: 80%;
+      height: 80%;
+      background-color: rgba(255, 255, 255, 0.6);
+      position: absolute;
+      top: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px;
+
+      .maintenance-title{
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 8px;
+        font-size: calc(1rem + ((1vw - 3.75px) * 0.884));
+      }
+
+      .maintenance-text{
+        color: $txt;
+      }
+    }
+  }
+
+  /* 奇数 */
+  .maintenance-wrapper.odd{
+
+    /* 文章の枠 */
+    .maintenance-text-wrapper{
+      right: 0;
+    }
+  }
+
+  /* 偶数 */
+  .maintenance-wrapper.even{
+    justify-content: flex-end;
+
+    /* 画像の枠 */
+    .maintenance-image-wrapper{
+      height: 100%;
+    }
+
+    /* 文章の枠 */
+    .maintenance-text-wrapper{
+      left: 0;
+    }
+  }
+}
+@media (min-width: 600px) {
+  .maintenance{
+    /* リード文 */
+    p{
+      width: 600px;
+      font-size: rem(20);
+      margin-bottom: 60px;
+    }
+
+    .maintenance-wrapper{
+      display: flex;
+      max-width: 640px;
+      margin: 0 auto 200px;
+
+      /* 文章の枠 */
+      .maintenance-text-wrapper{
+        padding: 0 40px;
+      }
+    }    
+  }
+}
+@media (min-width: 1025px) {
+  .maintenance{
+     /* リード文 */
+    p{
+      width: 600px;
+      font-size: rem(20);
+    }
+    
+    /* 個々のメンテナンス */
+    .maintenance-wrapper{
+      display: flex;
+      max-width: 100%;
+      margin-bottom: 150px;
+  
+      /* 画像の枠 */
+      .maintenance-image-wrapper{
+        max-width: 640px;
+        width: 100%;
+      }
+  
+      /* 文章の枠 */
+      .maintenance-text-wrapper{
+        width: 58%;
+        max-width: 640px;
+        padding: 0 80px;
+        height: 100%;
+        top: 23%;
+
+        /* 見出し */
+        .maintenance-title{
+          font-size: rem(24);
+        }
+      }
+    }
+  }
+  
+}
+
+/* ------------------------------------ */
+/* contact */
+/* ------------------------------------ */
+.contact{
+
+  /* お問い合わせボタン全体の大枠 */
+  .contact-btn-wrapper{
+    margin-bottom: 40px;
+
+    /* お問い合わせボタンの外部 */
+    .phone, .mail{
+      border: 1px solid #000;
+      width: 90%;
+      margin: 0 auto 24px;
+      
+      /* お問い合わせボタン内部 */
+      a{
+        padding: 16px 0;
+        display: block;
+        width: 100%;  
+        height: 100%;
+        text-align: center;
+
+        /* 文言 */
+        p{
+          line-height: 1;
+        }
+
+        /* 上の行 */
+        p:first-child{
+          font-size: calc(1rem + ((1vw - 3.75px) * 0.884));
+          margin-bottom: 8px;
+        }
+        
+        /* 下の行 */
+        p:last-child{
+          font-size: calc(1.25rem + ((1vw - 3.75px) * 1.326));
+        }
+      }
+    }
+  }
+
+  /* 営業時間とラインでのご相談 */
+  .open{
+    text-align: center;
+  }
+}
+
+@media (min-width: 600px) {
+  .contact{
+
+    /* お問い合わせボタン全体の大枠 */
+    .contact-btn-wrapper{
+      display: flex;
+      justify-content: space-between;
+  
+      /* お問い合わせボタンの外部 */
+      .phone, .mail{
+        width: 45%;
+        max-width: 500px;
+        margin-bottom: 24px;
+  
+        /* お問い合わせボタン内部 */
+        a{
+          padding: 24px 0;
+          transition: all .4s;
+  
+          /* 上の行 */
+          p:first-child{
+            margin-bottom: 16px;
+          }
+          
+          
+          /* カーソルが乗った時 */
+          &:hover{
+            opacity: .6;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 1025px) {
+  .contact{
+    /* お問い合わせボタン全体の大枠 */
+    .contact-btn-wrapper{
+      margin-bottom: 60px;
+  
+      /* お問い合わせボタンの外部 */
+      .phone, .mail{
+        
+        /* お問い合わせボタン内部 */
+        a{
+          padding: 40px 0;
+
+          /* 上の行 */
+          p:first-child{
+            font-size: 24px;
+          }
+
+          /* 下の行 */
+          p:last-child{
+            font-size: 32px;
+          }
+        }
+      }
+    }
+  }
+    
+}
+/* ------------------------------------ */
+/* バナー */
+/* ------------------------------------ */
+.online-shop-banner{
+  border: 1px solid #000;
+  border: 1px solid #000;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+
+  a{
+    display: block;
+    padding: 16px;
+    background-color: $bgcB;
+  }
+}
+
+@media (min-width: 600px){
+  .online-shop-banner{
+  
+    a{
+      transition: all .4s;
+      &:hover{
+        background-color: #333;
+        color: #cfa957;
+      }
+    }
+  }
+}
+
+/* ------------------------------------ */
+/* フッター */
+/* ------------------------------------ */
+footer{
+  margin-bottom: 60px;
+  /* コピーライト */
+  p{
+    text-align: center;
+    padding: 20px;
+    font-size: calc(0.75rem + ((1vw - 3.75px) * 0.221));
+  }
+  
+  /* topへもどるボタン */
+  .toTop{
+    border: 1px solid #000;
+    display: inline-block;
+    position: fixed;
+    bottom: 8%;
+    right: 4%;
+    padding: 8px;
+    z-index: 3;
+    background-color: $bgcB;
+  }
+}
+
+@media (min-width: 600px) {
+  .toTop{
+    transition: all .4s;
+    &:hover{
+      color: #cfa957;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  footer{
+    /* コピーライト */
+    p{
+      font-size: rem(14);
+    }
+  }
+  
+}
