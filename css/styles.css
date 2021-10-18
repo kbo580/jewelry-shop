@@ -45,7 +45,6 @@ h2 {
 }
 
 section {
-  border: 1px solid #000;
   padding: 40px 0;
 }
 
@@ -326,6 +325,7 @@ header .header-nav {
 /* about */
 /* ------------------------------------ */
 .about {
+  background: url(../images/bg.png);
   /* aboutのテキストの枠 */
 }
 
@@ -760,41 +760,14 @@ header .header-nav {
 }
 
 /* ------------------------------------ */
-/* バナー */
-/* ------------------------------------ */
-.online-shop-banner {
-  border: 1px solid #000;
-  border: 1px solid #000;
-  text-align: center;
-  width: 100%;
-  position: fixed;
-  bottom: 0%;
-}
-
-.online-shop-banner a {
-  display: block;
-  padding: 16px;
-  background-color: #f7f7f7;
-}
-
-@media (min-width: 600px) {
-  .online-shop-banner a {
-    -webkit-transition: all .4s;
-    transition: all .4s;
-  }
-  .online-shop-banner a:hover {
-    background-color: #333;
-    color: #cfa957;
-  }
-}
-
-/* ------------------------------------ */
 /* フッター */
 /* ------------------------------------ */
 footer {
-  margin-bottom: 60px;
+  margin-bottom: 70px;
+  width: 100%;
   /* コピーライト */
   /* topへもどるボタン */
+  /* バナー */
 }
 
 footer p {
@@ -807,19 +780,54 @@ footer .toTop {
   border: 1px solid #000;
   display: inline-block;
   position: fixed;
-  bottom: 8%;
-  right: 4%;
+  bottom: 9%;
+  right: 2%;
   padding: 8px;
   z-index: 3;
   background-color: #f7f7f7;
 }
 
+footer .online-shop-banner {
+  border: 1px solid #000;
+  border: 1px solid #000;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  height: 70px;
+}
+
+footer .online-shop-banner a {
+  line-height: 70px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #f7f7f7;
+}
+
 @media (min-width: 600px) {
-  .toTop {
+  footer {
+    margin-bottom: 90px;
+    /* バナー */
+  }
+  footer .toTop {
+    bottom: 10%;
+    -webkit-transition: color .4s;
+    transition: color .4s;
+  }
+  footer .toTop:hover {
+    color: #cfa957;
+  }
+  footer .online-shop-banner {
+    height: 90px;
+  }
+  footer .online-shop-banner a {
+    line-height: 90px;
     -webkit-transition: all .4s;
     transition: all .4s;
   }
-  .toTop:hover {
+  footer .online-shop-banner a:hover {
+    background-color: #333;
     color: #cfa957;
   }
 }
@@ -827,9 +835,18 @@ footer .toTop {
 @media (min-width: 1025px) {
   footer {
     /* コピーライト */
+    /* バナー */
   }
   footer p {
     font-size: 0.875rem;
+  }
+  footer .online-shop-banner a {
+    -webkit-transition: all .4s;
+    transition: all .4s;
+  }
+  footer .online-shop-banner a:hover {
+    background-color: #333;
+    color: #cfa957;
   }
 }
 /*# sourceMappingURL=styles.css.map */

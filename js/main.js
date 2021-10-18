@@ -48,7 +48,7 @@ $(function(){
       return false;
 
     }else{
-      // ヘッダーとpaddingの分をマイナス
+      // ヘッダーとmarginの分をマイナス
       var minu = 170;
       var id =$(this).attr('href');
       var pos = $(id).offset().top-minu;
@@ -57,6 +57,8 @@ $(function(){
     }
   });
 
+
+  $('#toTop').hide();
   //画面をスクロールしたら
   $(window).on('scroll', function(){
   if($(this).scrollTop()>1000){
