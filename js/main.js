@@ -12,23 +12,24 @@ $(function(){
 		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
 		centerMode: true,//要素を中央ぞろえにする
 		variableWidth: true,//幅の違う画像の高さを揃えて表示
+    mobileFirst: true,
 		// dots: true,//下部ドットナビゲーションの表示
 	});
 
   // ハンバーガー
-  $(".humberger").click(function () {//ボタンがクリックされたら
-    $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
-      $("#spHeaderNav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+  $(".humberger").on('click', function () {
+    $(this).toggleClass('active');
+      $("#spHeaderNav").toggleClass('panelactive');
   });
 
-  $("#spHeaderNav a").click(function () {//ナビゲーションのリンクがクリックされたら
-      $(".humberger").removeClass('active');//ボタンの activeクラスを除去し
-      $("#spHeaderNav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+  $("#spHeaderNav a").on('click', function () {
+      $(".humberger").removeClass('active');
+      $("#spHeaderNav").removeClass('panelactive');
   });
 
   // 固定ヘッダー
   var fixedNav = $( '.header-nav' ).offset().top;
-  $(window).scroll(function(){
+  $(window).on('scroll', function(){
     if($(this).scrollTop()>fixedNav){
       $('.header-nav').addClass('nav-wrapper-scroll');
     }else{
@@ -57,11 +58,9 @@ $(function(){
   });
 
   //画面をスクロールしたら
-  $(window).scroll(function(){
-    //height600以上でボタンがfadein
+  $(window).on('scroll', function(){
   if($(this).scrollTop()>1000){
     $('#toTop').fadeIn();
-    //height600以下でボタンがfadeout
     return false;
   }else{
     $('#toTop').fadeOut();
@@ -70,7 +69,7 @@ $(function(){
   });
 
   //「topへ戻る」ボタンを押すとtopから0の地点へスクロールする
-  $('#toTop').click(function(){ 
+  $('#toTop').on('click', function(){ 
     $('html,body').animate({'scrollTop':0},500);
     return false;
   });

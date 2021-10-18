@@ -102,7 +102,6 @@ header .humberger span {
   display: inline-block;
   -webkit-transition: all .4s;
   transition: all .4s;
-  /*アニメーションの設定*/
   position: absolute;
   left: 14px;
   height: 3px;
@@ -153,8 +152,8 @@ header .sp-header-nav {
   height: 100vh;
   background: #999;
   background: #f7f7f7;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+  -webkit-transition: right 0.4s;
+  transition: right 0.4s;
   /*ナビゲーション*/
 }
 
