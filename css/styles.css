@@ -520,101 +520,101 @@ header .header-nav {
 /* maintenance */
 /* ------------------------------------ */
 .maintenance {
-  background-color: #f7f7f7;
   /* リード文 */
   /* 個々のメンテナンス */
-  /* 奇数 */
-  /* 偶数 */
 }
 
-.maintenance p {
+.maintenance .message {
   width: 100%;
-  margin: 0 auto 20px;
+  margin: 0 auto 30px;
   font-size: calc(1rem + ((1vw - 3.75px) * 0.442));
 }
 
 .maintenance .maintenance-wrapper {
   position: relative;
-  margin-bottom: 100px;
-}
-
-.maintenance .maintenance-wrapper .maintenance-image-wrapper {
-  width: 100%;
+  margin-bottom: 50px;
+  /* 文章の枠 */
 }
 
 .maintenance .maintenance-wrapper .maintenance-text-wrapper {
-  width: 80%;
-  height: 80%;
-  background-color: rgba(255, 255, 255, 0.6);
-  position: absolute;
-  top: 50%;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 20px #ccc;
+          box-shadow: 0 0 20px #ccc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 16px;
 }
 
-.maintenance .maintenance-wrapper .maintenance-text-wrapper .maintenance-title {
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 8px;
+.maintenance .maintenance-wrapper .maintenance-text-wrapper .maintenance-text-content {
+  padding: 40px;
+  /* 見出し */
+  /* 本文 */
+}
+
+.maintenance .maintenance-wrapper .maintenance-text-wrapper .maintenance-text-content .maintenance-title {
   font-size: calc(1rem + ((1vw - 3.75px) * 0.884));
+  text-align: center;
+  margin-bottom: 16px;
 }
 
-.maintenance .maintenance-wrapper .maintenance-text-wrapper .maintenance-text {
+.maintenance .maintenance-wrapper .maintenance-text-wrapper .maintenance-text-content .maintenance-text {
   color: #333;
-}
-
-.maintenance .maintenance-wrapper.odd {
-  /* 文章の枠 */
-}
-
-.maintenance .maintenance-wrapper.odd .maintenance-text-wrapper {
-  right: 0;
-}
-
-.maintenance .maintenance-wrapper.even {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  /* 画像の枠 */
-  /* 文章の枠 */
-}
-
-.maintenance .maintenance-wrapper.even .maintenance-image-wrapper {
-  height: 100%;
-}
-
-.maintenance .maintenance-wrapper.even .maintenance-text-wrapper {
-  left: 0;
 }
 
 @media (min-width: 600px) {
   .maintenance {
     /* リード文 */
+    /* 個々のメンテナンス */
   }
-  .maintenance p {
+  .maintenance .message {
     width: 600px;
-    font-size: 1.25rem;
     margin-bottom: 60px;
   }
   .maintenance .maintenance-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    max-width: 640px;
-    margin: 0 auto 200px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: relative;
+    margin-bottom: 300px;
+    /* 画像の枠 */
     /* 文章の枠 */
+    /* 背景の擬似要素 */
+  }
+  .maintenance .maintenance-wrapper:last-child {
+    margin-bottom: 200px;
+  }
+  .maintenance .maintenance-wrapper .maintenance-image-wrapper {
+    width: 50%;
   }
   .maintenance .maintenance-wrapper .maintenance-text-wrapper {
-    padding: 0 40px;
+    width: 40%;
+    position: relative;
+    top: 150px;
+  }
+  .maintenance .maintenance-wrapper:before {
+    content: " ";
+    position: absolute;
+    background-color: #f7f7f7;
+    width: 80%;
+    height: 110%;
+    z-index: -1;
+    right: 10%;
+    top: 20%;
+  }
+  .maintenance .maintenance-wrapper.even {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
   }
 }
 
@@ -623,33 +623,89 @@ header .header-nav {
     /* リード文 */
     /* 個々のメンテナンス */
   }
-  .maintenance p {
-    width: 600px;
+  .maintenance .message {
     font-size: 1.25rem;
+    margin-bottom: 80px;
   }
   .maintenance .maintenance-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 100%;
-    margin-bottom: 150px;
-    /* 画像の枠 */
     /* 文章の枠 */
   }
-  .maintenance .maintenance-wrapper .maintenance-image-wrapper {
-    max-width: 640px;
-    width: 100%;
-  }
   .maintenance .maintenance-wrapper .maintenance-text-wrapper {
-    width: 58%;
-    max-width: 640px;
-    padding: 0 80px;
-    height: 100%;
-    top: 23%;
     /* 見出し */
   }
   .maintenance .maintenance-wrapper .maintenance-text-wrapper .maintenance-title {
     font-size: 1.5rem;
+  }
+  .fadeUpTrigger {
+    opacity: 0;
+  }
+  /* 左から */
+  .fadeLeft {
+    -webkit-animation-name: fadeLeftAnime;
+            animation-name: fadeLeftAnime;
+    -webkit-animation-duration: 1.8s;
+            animation-duration: 1.8s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  @-webkit-keyframes fadeLeftAnime {
+    from {
+      opacity: 0;
+      -webkit-transform: translateX(-200px);
+              transform: translateX(-200px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+  }
+  @keyframes fadeLeftAnime {
+    from {
+      opacity: 0;
+      -webkit-transform: translateX(-200px);
+              transform: translateX(-200px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+  }
+  /* 右から */
+  .fadeRight {
+    -webkit-animation-name: fadeRightAnime;
+            animation-name: fadeRightAnime;
+    -webkit-animation-duration: 1.8s;
+            animation-duration: 1.8s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  @-webkit-keyframes fadeRightAnime {
+    from {
+      opacity: 0;
+      -webkit-transform: translateX(200px);
+              transform: translateX(200px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+  }
+  @keyframes fadeRightAnime {
+    from {
+      opacity: 0;
+      -webkit-transform: translateX(200px);
+              transform: translateX(200px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
   }
 }
 
@@ -788,8 +844,8 @@ footer .toTop {
 }
 
 footer .online-shop-banner {
-  border: 1px solid #000;
-  border: 1px solid #000;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   text-align: center;
   width: 100%;
   position: fixed;

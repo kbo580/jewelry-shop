@@ -76,6 +76,38 @@ $(function(){
     return false;
   });
 
+  // 動きのきっかけとなるアニメーションの名前を定義
+  function fadeAnime(){
+
+    $('.fadeInRightTrigger').each(function(){ 
+      var elemPos = $(this).offset().top-70;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll >= elemPos - windowHeight){
+      $(this).addClass('fadeRight');
+      }else{
+      $(this).removeClass('fadeRight');
+      }
+      });
+
+      $('.fadeInLeftTrigger').each(function(){ 
+        var elemPos = $(this).offset().top-70;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll >= elemPos - windowHeight){
+        $(this).addClass('fadeLeft');
+        }else{
+        $(this).removeClass('fadeLeft');
+        }
+        });
+
+  }
+
+  // 画面をスクロールをしたら動かしたい場合の記述
+  $(window).scroll(function (){
+    fadeAnime();
+  });
+
 
 
   
