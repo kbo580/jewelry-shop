@@ -598,6 +598,7 @@ header{
       }
     }
   }
+
 }
 
 @media (min-width: 600px) {
@@ -647,29 +648,6 @@ header{
       flex-direction: row-reverse;
     }
   }
-}
-
-@media (min-width: 1025px) {
-  .maintenance{
-    /* リード文 */
-    .message{
-      font-size: rem(20);
-      margin-bottom: 80px;
-    }
-    
-    /* 個々のメンテナンス */
-    .maintenance-wrapper{
-  
-      /* 文章の枠 */
-      .maintenance-text-wrapper{
-
-        /* 見出し */
-        .maintenance-title{
-          font-size: rem(24);
-        }
-      }
-    }
-  }
 
   .fadeUpTrigger{
     opacity: 0;
@@ -714,7 +692,30 @@ header{
       transform: translateX(0);
     }
   }
+}
+
+@media (min-width: 1025px) {
+  .maintenance{
+    /* リード文 */
+    .message{
+      font-size: rem(20);
+      margin-bottom: 80px;
+    }
+    
+    /* 個々のメンテナンス */
+    .maintenance-wrapper{
   
+      /* 文章の枠 */
+      .maintenance-text-wrapper{
+
+        /* 見出し */
+        .maintenance-title{
+          font-size: rem(24);
+        }
+      }
+    }
+  }
+
 }
 
 

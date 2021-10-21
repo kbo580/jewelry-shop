@@ -616,26 +616,6 @@ header .header-nav {
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
-}
-
-@media (min-width: 1025px) {
-  .maintenance {
-    /* リード文 */
-    /* 個々のメンテナンス */
-  }
-  .maintenance .message {
-    font-size: 1.25rem;
-    margin-bottom: 80px;
-  }
-  .maintenance .maintenance-wrapper {
-    /* 文章の枠 */
-  }
-  .maintenance .maintenance-wrapper .maintenance-text-wrapper {
-    /* 見出し */
-  }
-  .maintenance .maintenance-wrapper .maintenance-text-wrapper .maintenance-title {
-    font-size: 1.5rem;
-  }
   .fadeUpTrigger {
     opacity: 0;
   }
@@ -706,6 +686,26 @@ header .header-nav {
       -webkit-transform: translateX(0);
               transform: translateX(0);
     }
+  }
+}
+
+@media (min-width: 1025px) {
+  .maintenance {
+    /* リード文 */
+    /* 個々のメンテナンス */
+  }
+  .maintenance .message {
+    font-size: 1.25rem;
+    margin-bottom: 80px;
+  }
+  .maintenance .maintenance-wrapper {
+    /* 文章の枠 */
+  }
+  .maintenance .maintenance-wrapper .maintenance-text-wrapper {
+    /* 見出し */
+  }
+  .maintenance .maintenance-wrapper .maintenance-text-wrapper .maintenance-title {
+    font-size: 1.5rem;
   }
 }
 
